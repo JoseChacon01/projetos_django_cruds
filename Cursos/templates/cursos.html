@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cursos</h1>
+    <p><a href="{% url 'cursos_cadastrar' %}">Cadastrar Curso</a></p>
+
+    <p>Lista de cursos:</p>
+    {% for curso in lista_de_cursos %}
+    <p>
+        Título do curso: {{curso.titulo}} |
+         Vagas: {{curso.vagas}}
+        | <a href="{% url 'editar_curso' curso.id %}">EDITAR</a> 
+        | <a href="{% url 'remover_cursos' curso.id %}">REMOVER</a>
+    </p>
+    {% empty %}
+    <p>Nenhum curso cadastrado</p>
+    {% endfor %}
+</body>
+</html>

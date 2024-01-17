@@ -1,0 +1,34 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .cor
+        {
+            border-radius: 5px;
+            background-color: aqua;
+        }
+
+        .cor2
+        {
+            border-radius: 5px;
+            background-color: rgb(51, 18, 194);
+        }
+
+    </style>
+</head>
+<body>
+    <p>Cadastrar cursos</p>
+    <form method="post">
+        {% csrf_token %} <!--Garante segurança aos dados so formulario-->
+       <p>{{form_cursos.titulo.label}}: {% render_field form_cursos.titulo placeholder='Abreviado' class="cor" %}</p>
+       <p>{{form_cursos.vagas.label}}: {% render_field form_cursos.vagas placeholder='Quantidade' class="cor2" %} </p>
+
+        <p><input type="submit" value="Cadastrar" /></p>
+    </form>
+</body>
+</html>

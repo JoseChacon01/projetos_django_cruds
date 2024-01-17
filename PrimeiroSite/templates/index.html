@@ -1,0 +1,27 @@
+
+
+<link rel="stylesheet" type="text/css" href="/static/estilo.css"/>
+
+<!---Importando a "BASE"-->
+{% extends "bases/base.html" %}
+
+{% block conteudo %}
+<p>Pagina Inicialll</p> 
+
+<p>Instituição: {{nome}}</p>
+<P>Curso: {{curso}}</P>
+<p>Periodo: {{periodo}}</p>
+
+{% if media > 60 %}
+<p>Situação: APROVADO</p>
+{%else%} 
+<p>Situação: REPROVADO</p>
+{% endif %}
+
+{% for nota_atual in notas %}
+<p>Nota: {{nota_atual}}</p>
+{% endfor %}
+
+
+<a href="{% url 'contato' %}"> Link para contato</a>
+    {% endblock %}
